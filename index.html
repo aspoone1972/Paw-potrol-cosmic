@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Космический Кот — 16-bit игра</title>
+  <!-- API Telegram Mini App; вне Telegram файл недоступен — игра просто работает как обычная веб-игра -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="frame">
+    <canvas id="game" width="320" height="240" aria-label="Игра Космический Кот"></canvas>
+  </div>
+  <script src="sprites.js"></script>
+  <script src="sound.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

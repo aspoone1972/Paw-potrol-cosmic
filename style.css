@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overscroll-behavior: none; /* запрещаем «отскок» страницы и закрытие Mini App свайпом */
+}
+
+body {
+  background: radial-gradient(circle at 50% 32%, #171b3e 0%, #0a0b1c 55%, #05060f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: "Press Start 2P", "Pixelify Sans", monospace;
+}
+
+/* Корпус консоли в духе 16-бит эпохи: серо-фиолетовый пластик с фаской */
+#frame {
+  position: relative;
+  border: 8px solid #8d91ad;
+  border-top-color: #a6aac4;
+  border-left-color: #9ba0bc;
+  border-right-color: #767a96;
+  border-bottom-color: #64687f;
+  border-radius: 8px;
+  box-shadow:
+    0 0 0 3px #3a3d55,
+    0 0 0 6px #23253a,
+    0 14px 32px rgba(0, 0, 0, 0.65),
+    inset 0 0 0 2px #5a3fa0;
+  background: #05060f;
+  line-height: 0;
+}
+
+/* Фиолетовая акцентная полоса сверху корпуса */
+#frame::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96px;
+  height: 4px;
+  border-radius: 2px;
+  background: #7b4fd0;
+}
+
+/* Лёгкие сканлайны CRT поверх экрана */
+#frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.16) 0 1px,
+    rgba(0, 0, 0, 0) 1px 3px
+  );
+  mix-blend-mode: multiply;
+}
+
+canvas {
+  /* 320x240 — разрешение эпохи 16-бит, растягиваем без сглаживания */
+  width: min(94vw, calc(94vh * 4 / 3));
+  height: auto;
+  display: block;
+  background: #05060f;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  cursor: pointer;
+  /* сенсорное управление (Telegram на телефоне): без скролла, зума и выделения */
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
